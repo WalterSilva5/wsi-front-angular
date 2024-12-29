@@ -24,7 +24,7 @@
 
 .styled-button {
   color: #343a40;
-  background-color: transparent;
+  background-color: #6eebbb;
   border: none;
   margin: 0 10px;
   cursor: pointer;
@@ -32,6 +32,7 @@
   padding: 10px 20px;
   position: relative;
   transition: background-color 0.3s ease;
+  border-radius: 5px;
 }
 
 .styled-button.active::after {
@@ -107,14 +108,18 @@
     padding: 10px 20px;
     text-decoration: none;
     display: inline-block;
+    background-color: #6eebbb;
   }
 
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f8f9fa;
+    background-color: #2eb883;
     min-width: 160px;
     box-shadow: none;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
 
     .styled-button {
       color: #343a40;
@@ -126,7 +131,7 @@
       cursor: pointer;
 
       &:hover {
-        background-color: #e9ecef;
+        background-color: #6eebbb;
       }
     }
   }
