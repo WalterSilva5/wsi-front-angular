@@ -5,7 +5,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { RouterModule, Router } from '@angular/router';
-import { ApiService } from '../data/api.service';
+import { AuthApiService } from '../provider/auth-api.service';
 import { Observable } from 'rxjs';
 import { AppState } from '../../../state';
 import { Store } from '@ngrx/store';
@@ -14,6 +14,7 @@ import {
   selectAuth,
 } from '../../../../app/state/auth/auth.selectors';
 import { AuthState } from '../../../state/auth/auth.models';
+import { AuthApiHandler } from '../data-handler/auth-api.handler';
 
 @Component({
   selector: 'app-login',
@@ -35,8 +36,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private apiService: ApiService,
     private store: Store<AppState>,
+    private api: AuthApiHandler,
     private router: Router
   ) {
     this.auth$ = this.store.select(selectAuth);
@@ -52,39 +53,24 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  getAuthData(): void {
-    this.auth$.subscribe((authData) => {
-      console.log('auth:', authData);
-    });
-  }
-
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     if (this.form.valid) {
       const { email, password } = this.form.value;
-      this.apiService.login({ email, password }).subscribe(
-        (response: any) => {
-          if (response?.accessToken) {
-            this.store.dispatch(AuthActions.loginSuccess({ auth: response }));
-            Swal.fire({
-              title: 'Carregando...',
-              timer: 500,
-              timerProgressBar: true,
-              didOpen: () => {
-                Swal.showLoading();
-              },
-            });
-            this.router.navigate(['/home']);
-          } else {
-            this.showAlert('Usuário ou senha inválidos');
-          }
-        },
-        (error: any) => {
-          console.error('Erro no login:', error);
-          this.showAlert('Erro ao fazer login');
-        }
-      );
-    } else {
-      this.showAlert('Usuário ou senha inválidos');
+      const authResponse = await this.api.login({ email, password });
+      if (authResponse?.accessToken) {
+        this.store.dispatch(AuthActions.loginSuccess({ auth: authResponse }));
+        Swal.fire({
+          title: 'Carregando...',
+          timer: 500,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        });
+        this.router.navigate(['/home']);
+      } else {
+        this.showAlert('Usuário ou senha inválidos');
+      }
     }
   }
 

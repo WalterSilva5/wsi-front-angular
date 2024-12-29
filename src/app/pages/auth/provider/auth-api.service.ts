@@ -10,7 +10,7 @@ import { AuthDto } from '../dto/auth-data.dto';
 @Injectable({
   providedIn: 'root',
 })
-export class ApiService extends DataService {
+export class AuthApiService extends DataService {
   constructor(public override http: HttpClient) {
     super(http);
   }
