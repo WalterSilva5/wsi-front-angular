@@ -1,0 +1,28 @@
+<div class="navbar p-0 m-0" [hidden]="currentRouteIsAuth">
+  <div class="d-flex p-0 bg-warning">
+    <a routerLink="/" class="bg-danger">
+      <h3 class="logo">WSI</h3>
+    </a>
+  </div>
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="button-container">
+      <button class="styled-button" routerLink="/home">Home</button>
+      <div class="dropdown">
+        <button class="styled-button dropdown-toggle">Exemplo Abas</button>
+        <div class="dropdown-content">
+          <button class="styled-button" routerLink="/sample-1">Exemplo 2</button>
+          <button class="styled-button" routerLink="/sample-2">Exemplo 1</button>
+        </div>
+      </div>
+      <button class="styled-button" routerLink="/user">Usuarios</button>
+    </div>
+    <div class="user-info">
+      <img class="user-icon" [src]="userIcon" alt="" />
+      <p class="username m-0 mx-2">{{ truncateName() }}</p>
+      <img [src]="pipeIcon" />
+      <button class="btn text-dark mx-3" (click)="handleLogout()" title="Sair">
+        <img [src]="logoutIcon" alt="Sair" />
+      </button>
+    </div>
+  </div>
+</div>

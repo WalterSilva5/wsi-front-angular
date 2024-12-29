@@ -1,0 +1,28 @@
+@import '../../../../../src/styles.scss';
+
+.toggle-password {
+  position: absolute;
+  top: 45%;
+  right: 30px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.toggle-password img {
+  width: 30px;
+  height: 30px;
+}
+
+.password-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  position: relative;
+}
+
+.form-control-lg {
+  padding-right: 40px;
+}

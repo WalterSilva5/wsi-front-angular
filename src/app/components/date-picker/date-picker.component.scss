@@ -1,0 +1,25 @@
+:host ::ng-deep {
+    .p-calendar {
+      .p-datepicker-trigger {
+        color: #e0f2f1;
+        background: #004d40; 
+        
+        &:hover {
+          color: #004d40;
+          background: #00796b; 
+        }
+        
+        &:focus {
+          box-shadow: 0 0 0 2px #e0f2f1;
+          border-color: #00796b;
+        }
+        
+        &.p-button {
+          &:enabled:hover {
+            background: #00796b;
+            border-color: #00796b;
+          }
+        }
+      }
+    }
+  }

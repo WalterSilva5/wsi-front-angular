@@ -1,0 +1,75 @@
+@import 'assets/styles/colors.scss';
+
+.cursor-disabled {
+  cursor: not-allowed;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-move {
+  cursor: move;
+}
+.cursor-grab {
+  cursor: grab;
+}
+.cursor-default {
+  cursor: default;
+}
+
+
+.btn-l_blue_1 {
+  color: $white_1;
+  background-color: $l_blue_1;
+  border-color: $l_blue_1;
+}
+
+.btn-l_blue_2 {
+  color: $white_1;
+  background-color: $l_blue_2;
+  border-color: $l_blue_2;
+}
+
+.btn-l_blue_3 {
+  color: $white_1;
+  background-color: $l_blue_3;
+  border-color: $l_blue_3;
+}
+
+.btn-l_blue_4 {
+  color: $white_1;
+  background-color: $l_blue_4;
+  border-color: $l_blue_4;
+}
+
+.btn-d_blue_1 {
+  color: $white_1;
+  background-color: $d_blue_1;
+  border-color: $d_blue_1;
+}
+
+.btn-d_blue_2 {
+  color: $white_1;
+  background-color: $d_blue_2;
+  border-color: $d_blue_2;
+}
+
+.btn-d_blue_3 {
+  color: $white_1;
+  background-color: $d_blue_3;
+  border-color: $d_blue_3;
+}
+
+.btn-d_blue_4 {
+  color: $white_1;
+  background-color: $d_blue_4;
+  border-color: $d_blue_4;
+}
+
+.btn-green_1 {
+  color: $white_1;
+  background-color: $green_1;
+  border-color: $green_1;
+  &:hover {
+    background-color: rgba($green_2, 0.8);
+  }
+}

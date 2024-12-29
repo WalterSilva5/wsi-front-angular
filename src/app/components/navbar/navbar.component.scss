@@ -1,0 +1,137 @@
+@import '../../../../src/styles.scss';
+
+.navbar {
+  background-color: #2eb883;
+  min-height: 42px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: inline-flex;
+  align-items: center;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.logo {
+  height: 26px;
+  color: #343a40;
+}
+
+.button-container {
+  display: flex;
+  align-items: start;
+  margin-left: auto;
+  margin-right: 20px;
+  background-color: red;
+}
+
+.styled-button {
+  color: #343a40;
+  background-color: transparent;
+  border: none;
+  margin: 0 10px;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 10px 20px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.styled-button.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #007bff;
+  display: block;
+}
+
+.styled-button:hover {
+  background-color: #e9ecef;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  max-width: 250px;
+  justify-content: flex-end; /* Alinha os itens à direita */
+}
+
+.user-info > .user-icon {
+  height: 30px;
+  margin-right: 10px;
+  padding: 0 10px;
+}
+
+.user-info > .username {
+  color: #343a40;
+  margin-right: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  &:hover {
+    background-color: #e9ecef;
+  }
+}
+
+.logout-button {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.maintenance-alert {
+  color: #343a40;
+  margin-right: 20px;
+  font-size: 14px;
+  background-color: #ffc107;
+  height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  user-select: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  .dropdown-toggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #343a40;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f8f9fa;
+    min-width: 160px;
+    box-shadow: none;
+
+    .styled-button {
+      color: #343a40;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #e9ecef;
+      }
+    }
+  }
+
+  &:hover .dropdown-content {
+    display: block;
+  }
+}

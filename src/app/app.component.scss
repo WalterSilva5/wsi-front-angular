@@ -1,0 +1,9 @@
+.min-body-height{
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .content{
+        flex: 1;
+    }
+}

@@ -1,0 +1,25 @@
+<div class="navbar p-0 m-0" [hidden]="currentRouteIsAuth">
+  <a routerLink="/">
+    <img
+      class="logo"
+      style="color: white; font-weight: bold"
+      [src]="logoPath"
+      alt="Wsi"
+    />
+  </a>
+  <div class="button-container">
+    <button class="styled-button" routerLink="/home">Home</button>
+    <button class="styled-button" routerLink="/user" *ngIf="canAccessUser$ | async ">Usuarios</button>
+  </div>
+  <div class="user-info">
+    <div class="username">
+    <img [src]="userIcon" alt="" />
+        <p class="m-0 mx-2">
+          {{ truncateName() }}</p>
+    </div>
+    <img [src]="pipeIcon" />
+    <button class="btn text-light mx-3" (click)="handleLogout()" title="Sair">
+      <img [src]="logoutIcon" alt="Sair" />
+    </button>
+  </div>
+</div>

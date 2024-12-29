@@ -1,0 +1,48 @@
+<!-- wsi-table.component.html -->
+<div class="wsi-table container-fluid p-0 my-4 mt-2 py-3">
+  <div *ngIf="showFilter" class="filter-container pt-2">
+    <input
+      type="text"
+      placeholder="Filtrar"
+      [(ngModel)]="filterValue"
+      (ngModelChange)="onFilterChange()"
+      class="form-control"
+    />
+  </div>
+
+  <div class="table-container">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns" [attr.colspan]="column.colSpan || 1" [class]="column.className">{{ column.label }}</th>
+          <th *ngIf="showActions" class="col-2">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of displayedData" (click)="onRowClick(row)">
+          <td *ngFor="let column of columns" [attr.colspan]="column.colSpan || 1" [class]="column.className">{{ formatValue(row[column.key], column.format) }}</td>
+          <td *ngIf="showActions" class="col-2">
+            <div class="d-flex justify-content-around">
+              <button *ngIf="activeActions.includes('edit')" class="btn btn-light btn-sm mx-1" (click)="onEditClick(row, $event)">
+                <img [src]="editIcon" alt="">
+              </button>
+              <button *ngIf="activeActions.includes('delete')" class="btn btn-light btn-sm mx-1" (click)="onDeleteClick(row, $event)">
+                <img [src]="deleteIcon" alt="">
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="showPagination" class="pagination p-4">
+    <button class="btn btn-outline-primary" (click)="previousPage()" [disabled]="currentPage === 1">
+      Anterior
+    </button>
+    <span class="mx-3">Página {{ currentPage }} de {{ totalPages }}</span>
+    <button class="btn btn-outline-primary" (click)="nextPage()" [disabled]="currentPage === totalPages">
+      Próxima
+    </button>
+  </div>
+</div>
