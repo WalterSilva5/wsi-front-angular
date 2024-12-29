@@ -12,8 +12,7 @@
 }
 
 .logo {
-  height: 26px;
-  color: #343a40;
+  text-decoration: none;
 }
 
 .button-container {
@@ -54,21 +53,23 @@
   display: flex;
   align-items: center;
   max-width: 250px;
-  justify-content: flex-end; /* Alinha os itens à direita */
+  justify-content: flex-end;
+  /* Alinha os itens à direita */
 }
 
-.user-info > .user-icon {
+.user-info>.user-icon {
   height: 30px;
   margin-right: 10px;
   padding: 0 10px;
 }
 
-.user-info > .username {
+.user-info>.username {
   color: #343a40;
   margin-right: 20px;
   font-size: 14px;
   display: flex;
   align-items: center;
+
   &:hover {
     background-color: #e9ecef;
   }
