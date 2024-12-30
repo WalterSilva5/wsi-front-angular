@@ -9,11 +9,6 @@
   cursor: pointer;
 }
 
-.toggle-password img {
-  width: 30px;
-  height: 30px;
-}
-
 .password-container {
   display: flex;
   flex-direction: column;
@@ -23,6 +18,10 @@
   position: relative;
 }
 
+.toggle-password {
+  display: none; 
+}
+
 .form-control-lg {
-  padding-right: 40px;
+  padding-right: 0;
 }

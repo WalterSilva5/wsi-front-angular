@@ -29,21 +29,18 @@
       </div>
     </div>
 
-    <div class="mb-3 position-relative">
-      <label for="password" class="form-label">*Senha:</label>
+    <div class="input-group mb-3">
       <input
         [type]="passwordFieldType"
         id="password"
         formControlName="password"
         autocomplete="off"
         class="form-control form-control-lg"
-        [class.is-invalid]="
-          form.get('password')?.invalid && form.get('password')?.touched
-        "
+        placeholder="Senha"
       />
       <button
+        class="btn btn-outline-secondary"
         type="button"
-        class="toggle-password"
         (click)="togglePasswordVisibility()"
       >
         <img
@@ -52,22 +49,10 @@
               ? openEyeIconPath
               : closeEyeIconPath
           "
-          alt="toggle password visibility"
+          alt="toggle"
         />
       </button>
-      <div
-        *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
-        class="invalid-feedback"
-      >
-        <div *ngIf="form.get('password')?.errors?.['required']">
-          Senha é obrigatória.
-        </div>
-        <div *ngIf="form.get('password')?.errors?.['minlength']">
-          Senha deve ter pelo menos 6 caracteres.
-        </div>
-      </div>
     </div>
-
     <div class="d-flex justify-content-center">
       <button type="submit" class="btn btn-purple_3">Entrar</button>
     </div>
